@@ -18,3 +18,8 @@ up: build
 	  $(IMAGE_NAME)
 	@echo "PostgreSQL available on localhost:$(PG_PORT)"
 
+
+# Run Spring Boot application ----------------------------------------------------
+.PHONY: run
+run:
+	./mvnw spring-boot:run
