@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/money_transfer_db}
+    username: ${DB_USER:money_user}
+    password: ${DB_PASSWORD:money_password}
+    driver-class-name: org.postgresql.Driver
+
+  # Disable JPA/Hibernate for now (we haven't added it)
+  jpa:
+    open-in-view: false
+
+server:
+  port: 8080
