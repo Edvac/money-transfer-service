@@ -47,6 +47,14 @@ Implemented Spring Data JDBC for Account model with validation and business logi
 includes validation annotations to ensure data integrity and business rules that prevent negative transfers
 while allowing negative balances. 
 
+#### 7. Models, Services, and Database Evolution
+My work on this money transfer service evolved through several logical steps:
+### Model Enhancement
+Starting with a basic model, I recognized the need to track transfers between accounts. I expanded the model with additional fields (currency, timestamps) and created a new `Transaction` model to record money movements. `Account``Account`
+### Service Layer Implementation
+I created a dedicated to handle all money transfer business logic, properly implementing transaction management with Spring's annotation to ensure data consistency. This service was moved to the correct package to maintain proper separation of concerns. `TransferService``@Transactional`
+### Database Schema Updates
+The initial database schema was too limited with just a simple table. I enhanced it to include currency and timestamps, and added a new `transactions` table with proper foreign key relationships to the accounts table. `accounts`
 
 
 ## What I Chose Not to Implement
