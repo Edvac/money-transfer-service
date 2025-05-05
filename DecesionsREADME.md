@@ -34,15 +34,20 @@ I've designed a simple money transfer service that builds on the existing projec
 - Focused on demonstrating the core functionality works
 
 ### 5. Data Model and Integration
-The `Account` class is a simple Java POJO located in the source package, reflecting the database schema with fields like `id`, `ownerName`, and `balance`. It acts as a DTO for data transfer.
-Data is accessed via Spring's `JdbcTemplate`, which executes SQL queries and maps results manually to `Account` instances. This minimal approach avoids ORM overhead, aligning with the project's focus on simplicity.
-Service classes use `Account` objects for fetching and updating data, and controllers serialize these objects for API responses, maintaining a lightweight and straightforward architecture.
+The `Account` class is a simple Java POJO located in the source package, reflecting the database schema with fields like
+`id`, `ownerName`, and `balance`. It acts as a DTO for data transfer. Data is accessed via Spring's `JdbcTemplate`, 
+which executes SQL queries and maps results manually to `Account` instances. This minimal approach avoids ORM overhead,
+aligning with the project's focus on simplicity. Service classes use `Account` objects for fetching and updating data,
+and controllers serialize these objects for API responses, maintaining a lightweight and straightforward architecture.
+
+### 6. Data Access Evolution: Spring Data JDBC
 
 
-- Implemented consistent error handling patterns
-- Added comprehensive JavaDoc documentation
-- Used consistent code formatting and naming conventions
-- Followed SOLID principles in service design
+Implemented Spring Data JDBC for Account model with validation and business logic for transfers. The model
+includes validation annotations to ensure data integrity and business rules that prevent negative transfers
+while allowing negative balances. 
+
+
 
 ## What I Chose Not to Implement
 
@@ -51,4 +56,5 @@ Service classes use `Account` objects for fetching and updating data, and contro
 - **Advanced error handling**: Implemented only essential validations
 - **UI components**: Pure REST API as required
 
-This approach delivers a functional money transfer service while maintaining simplicity and focusing on the core requirements.
+This approach delivers a functional money transfer service while maintaining simplicity and focusing on the core
+requirements.
