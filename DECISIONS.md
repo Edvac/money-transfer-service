@@ -56,6 +56,14 @@ I created a dedicated to handle all money transfer business logic, properly impl
 ### Database Schema Updates
 The initial database schema was too limited with just a simple table. I enhanced it to include currency and timestamps, and added a new `transactions` table with proper foreign key relationships to the accounts table. `accounts`
 
+### 8. Controller Layer Implementation
+
+For the controller layer, I focused on creating a clean interface between clients and the service layer. I first
+designed the `AccountController` with straightforward CRUD operations, making sure to return meaningful HTTP status
+codes and manage error responses. Later, recognizing the need for transfer functionality, I separated concerns by
+implementing a dedicated `TransferController`. This decision kept the code more maintainable as each controller handles
+a specific domain concept. I chose to leverage Spring's automatic JSON serialization rather than creating custom DTOs
+since our model objects were already well-structured for API responses.
 
 ## What I Chose Not to Implement
 
