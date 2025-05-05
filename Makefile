@@ -23,3 +23,14 @@ up: build
 .PHONY: run
 run:
 	./mvnw spring-boot:run
+
+# Build FAT JAR ----------------------------------------------------------------
+.PHONY: jar
+jar:
+	./mvnw clean package
+	@echo "FAT JAR built at $(APP_JAR)"
+
+# Run standalone JAR -----------------------------------------------------------
+.PHONY: run-jar
+run-jar: jar
+	java -jar $(APP_JAR)
