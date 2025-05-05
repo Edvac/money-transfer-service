@@ -1,0 +1,62 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: money_transfer_db
+          POSTGRES_USER: money_user
+          POSTGRES_PASSWORD: money_password
+        ports:
+          - 5432:5432
+        # Health check to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Initialize Database
+        run: |
+          psql -h localhost -U money_user -d money_transfer_db -f db/init.sql
+        env:
+          PGPASSWORD: money_password
+
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+
+      - name: Run Tests
+        run: mvn test
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: money-transfer-service-jar
+          path: target/money-transfer-service-*.jar
+
+  # Add a deploy job if you want to deploy to a server or container registry
+  # deploy:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     # Add deployment steps here
