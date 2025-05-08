@@ -11,3 +11,17 @@ spring:
 
 server:
   port: 8080
+
+
+springdoc:
+  api-docs:
+    enabled: true  # Keep enabled to support Swagger UI
+  swagger-ui:
+    path: /swagger-ui.html
+    url: /openapi.yaml  # Point to your static file
+    disable-swagger-default-url: true
+    operationsSorter: method
+    tagsSorter: alpha
+    display-request-duration: true
+  show-actuator: false
+  # No need for packages-to-scan since we're using a static file
