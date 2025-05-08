@@ -65,6 +65,10 @@ implementing a dedicated `TransferController`. This decision kept the code more 
 a specific domain concept. I chose to leverage Spring's automatic JSON serialization rather than creating custom DTOs
 since our model objects were already well-structured for API responses.
 
+Swagger UI choosed to use a static file. With this trade off
+the file needs to be updated when there is an API change but the code remains more redable as the code already has many
+annotations.
+
 ## What I Chose Not to Implement
 
 - **Authentication**: Not needed for an internal service
