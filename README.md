@@ -36,6 +36,28 @@ Use it as a starting point for experimenting with basic account/transfer functio
    java -jar target/money-transfer-service-0.0.1-SNAPSHOT.jar
  ```
 
+## API Documentation
+
+This service provides interactive API documentation using Swagger UI.
+
+### Accessing the API Documentation
+
+When the application is running, you can access the Swagger UI at: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+The documentation provides:
+- Complete details of all available endpoints
+- Request/response schemas
+- The ability to test API calls directly from the browser
+
+### Using Swagger UI
+
+1. Navigate to the Swagger UI URL
+2. Browse the available endpoints grouped by controller/tag
+3. Click on any endpoint to expand it and see detailed information
+4. Use the "Try it out" button to execute requests directly from the browser
+5. Examine the responses to understand the API behavior
+
+The OpenAPI specification is maintained in a static file. If you modify the API, please update the specification in `src/main/resources/static/openapi.yaml`.
 ## Testing the API
 
 ### View all accounts
