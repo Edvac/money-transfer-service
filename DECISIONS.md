@@ -69,6 +69,17 @@ Swagger UI choosed to use a static file. With this trade off
 the file needs to be updated when there is an API change but the code remains more redable as the code already has many
 annotations.
 
+## Future enchancements
+
+- Advanced error handling i.e. centralised exception handling and catching more cases
+- Monitoring and observablity i.e. with tools like Prometheus
+- Additional testing
+  - Integration, using Spring tools or bash scripts
+  - Load testing
+  - Improve the CI/CD pipeline
+  - Compliance and Auditing
+    - Audit Trail and Financial regulations additions
+
 ## What I Chose Not to Implement
 
 - **Authentication**: Not needed for an internal service
