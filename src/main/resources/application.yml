@@ -12,6 +12,18 @@ spring:
 server:
   port: 8080
 
+# Add logging configuration here
+logging:
+  level:
+    root: INFO
+    com.example.moneytransferservice: DEBUG
+    org.springframework: WARN
+    org.springframework.jdbc: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: money-transfer-service.log
+
 
 springdoc:
   api-docs:
